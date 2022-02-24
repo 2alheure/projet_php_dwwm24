@@ -48,6 +48,11 @@ switch ($route) {
         connexion();
         break;
 
+    case 'deconnexion':
+        require_once controller('authentication');
+        deconnexion();
+        break;
+
     default:
         erreur(404);
 }

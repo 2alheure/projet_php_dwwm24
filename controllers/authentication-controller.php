@@ -27,3 +27,8 @@ function connexion() {
 
     require_once view('authentication/connexion');
 }
+
+function deconnexion() {
+    session_destroy();
+    redirection('home');
+}
