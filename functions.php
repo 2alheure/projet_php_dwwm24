@@ -40,8 +40,11 @@ function view(string $nom) {
     return __DIR__ . '/views/' . $nom . '.php';
 }
 
-function erreur(int $code) {
-    die('Erreur ' . $code);
+function erreur(int $code = 500) {
+    if (file_exists(view('erreurs/' . $code))) require_once view('erreurs/' . $code);
+    else require_once view('erreurs/500');
+
+    die();
 }
 
 function validerUrl(string $url): bool {
