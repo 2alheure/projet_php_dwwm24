@@ -20,6 +20,10 @@
             <a class="nav-link" href="<?= url('home') ?>">Accueil</a>
             <a class="nav-link" href="<?= url('liste-articles') ?>">Les articles</a>
             <a class="nav-link" href="<?= url('ajout-article') ?>">Ajouter un article</a>
-            <a class="nav-link" href="<?= url('connexion') ?>">Connexion</a>
-            <a class="nav-link" href="<?= url('deconnexion') ?>">Déconnexion</a>
+
+            <?php if (estConnecte()) : ?>
+                <a class="nav-link" href="<?= url('deconnexion') ?>">Déconnexion</a>
+            <?php else : ?>
+                <a class="nav-link" href="<?= url('connexion') ?>">Connexion</a>
+            <?php endif; ?>
         </nav>

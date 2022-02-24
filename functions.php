@@ -65,3 +65,7 @@ function erreursFormulaire(array $errors) {
         </div>
 <?php }
 }
+
+function estConnecte() {
+    return !empty($_SESSION['utilisateur']);
+}
