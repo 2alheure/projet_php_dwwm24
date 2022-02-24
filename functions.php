@@ -69,3 +69,7 @@ function erreursFormulaire(array $errors) {
 function estConnecte() {
     return !empty($_SESSION['utilisateur']);
 }
+
+function estAdmin() {
+    return estConnecte() && $_SESSION['utilisateur']->role == 'admin';
+}

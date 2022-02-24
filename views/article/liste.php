@@ -12,8 +12,10 @@
                 <p class="card-text"><?= resume($article) ?></p>
                 <p class="card-text d-flex justify-content-around">
                     <a class="btn btn-primary" href="<?= url('details-article&id=' . $article->id) ?>">Lire</a>
-                    <a class="btn btn-warning" href="<?= url('modif-article&id=' . $article->id) ?>">Modifier</a>
-                    <a class="btn btn-danger" href="<?= url('suppr-article&id=' . $article->id) ?>" onclick="return confirm('Êtes-vous sûr ?')">Supprimer</a>
+                    <?php if (estAdmin()) : ?>
+                        <a class="btn btn-warning" href="<?= url('modif-article&id=' . $article->id) ?>">Modifier</a>
+                        <a class="btn btn-danger" href="<?= url('suppr-article&id=' . $article->id) ?>" onclick="return confirm('Êtes-vous sûr ?')">Supprimer</a>
+                    <?php endif; ?>
                 </p>
             </div>
         </div>
