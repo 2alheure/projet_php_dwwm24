@@ -54,3 +54,14 @@ function validerUrl(string $url): bool {
 function validerDate(string $date): bool {
     return date_create_from_format('Y-m-d', $date) !== false;
 }
+
+function erreursFormulaire(array $errors) {
+    foreach ($errors as $error) { ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <?= $error ?>
+        </div>
+<?php }
+}

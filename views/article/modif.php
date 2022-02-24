@@ -3,19 +3,7 @@
 <h1>Modifier un article</h1>
 
 <form method="post">
-
-    <?php if (!empty($errors)) {
-        foreach ($errors as $error) { ?>
-
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <?= $error ?>
-            </div>
-
-    <?php }
-    } ?>
+    <?php if (!empty($errors)) erreursFormulaire($errors); ?>
 
     <div class="form-group row">
         <label for="titre" class="col-sm-12 col-form-label">Titre</label>

@@ -3,6 +3,12 @@
 require_once __DIR__ . '/functions.php';
 seConnecter();
 
+// J'ai besoin du modèle Utilisateur
+// Parce que dans ma session je stocke un Utilisateur
+require_once model('Utilisateur');
+session_start();
+
+
 if (empty($_GET['route'])) $route = 'home';
 else $route = $_GET['route'];
 
@@ -35,6 +41,11 @@ switch ($route) {
     case 'suppr-article':
         require_once controller('article');
         suppr();
+        break;
+
+    case 'connexion':
+        require_once controller('authentication');
+        connexion();
         break;
 
     default:

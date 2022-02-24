@@ -20,4 +20,5 @@
             <a class="nav-link" href="<?= url('home') ?>">Accueil</a>
             <a class="nav-link" href="<?= url('liste-articles') ?>">Les articles</a>
             <a class="nav-link" href="<?= url('ajout-article') ?>">Ajouter un article</a>
+            <a class="nav-link" href="<?= url('connexion') ?>">Connexion</a>
         </nav>
