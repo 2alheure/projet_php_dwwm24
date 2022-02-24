@@ -89,7 +89,7 @@ function dd($var) {
 function reconnecterUtilisateur() {
     if (!estConnecte() && !empty($_COOKIE['remember'])) {
         require_once model('Utilisateur');
-        $utilisateur = Utilisateur::retrieveByPK($_COOKIE['remember']);
+        $utilisateur = Utilisateur::retrieveByPK(dechiffrer($_COOKIE['remember']));
 
         if (empty($utilisateur)) { // Cas où le cookie est corrompu
             setcookie('remember'); // On détruit le cookie
@@ -99,4 +99,18 @@ function reconnecterUtilisateur() {
 
     if (!empty($_COOKIE['remember'])) // Si le cookie existe, on prolonge sa durée de vie
         setcookie('remember', $_COOKIE['remember'], time() + 3600 * 24 * 30);
+}
+
+function chiffrer($msg) {
+    if (function_exists('openssl_encrypt'))
+        return urlencode(openssl_encrypt(urlencode($msg), SSL_ALGO, SSL_KEY, false, SSL_IV));
+    else
+        return urlencode(exec("echo \"" . urlencode($msg) . "\" | openssl enc -" . urlencode(SSL_ALGO) . " -base64 -nosalt -K " . bin2hex(SSL_KEY) . " -iv " . bin2hex(SSL_IV)));
+}
+
+function dechiffrer($msg) {
+    if (function_exists('openssl_decrypt'))
+        return trim(urldecode(openssl_decrypt(urldecode($msg), SSL_ALGO, SSL_KEY, false, SSL_IV)));
+    else
+        return trim(urldecode(exec("echo \"" . urldecode($msg) . "\" | openssl enc -" . SSL_ALGO . " -d -base64 -nosalt -K " . bin2hex(SSL_KEY) . " -iv " . bin2hex(SSL_IV))));
 }
