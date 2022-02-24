@@ -23,16 +23,18 @@ function ajout() {
         // Le formulaire a été soumis
         // On procède à son traitement
 
-        if (
-            !empty($_POST['date'])
-            && !empty($_POST['contenu'])
-            && !empty($_POST['image'])
-            && !empty($_POST['auteur'])
-            && !empty($_POST['titre'])
+        $errors = [];
 
-            && validerUrl($_POST['image'])
-            && validerDate($_POST['date'])
-        ) {
+        if (empty($_POST['date'])) $errors[] = 'La date est requise.';
+        if (empty($_POST['contenu'])) $errors[] = 'Le contenu est requis.';
+        if (empty($_POST['image'])) $errors[] = 'L\'image est requise.';
+        if (empty($_POST['auteur'])) $errors[] = 'L\'auteur est requis.';
+        if (empty($_POST['titre'])) $errors[] = 'Le titre est requis.';
+
+        if (!validerUrl($_POST['image'])) $errors[] = 'L\'image doit être une URL valide.';
+        if (!validerDate($_POST['date'])) $errors[] = 'La date doit être valide.';
+
+        if (empty($errors)) {
             $article = new Article;
 
             $article->date_de_publication = $_POST['date'];
