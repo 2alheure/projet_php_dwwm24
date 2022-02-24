@@ -53,6 +53,11 @@ switch ($route) {
         deconnexion();
         break;
 
+    case 'creer-compte':
+        require_once controller('authentication');
+        register();
+        break;
+
     default:
         erreur(404);
 }

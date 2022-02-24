@@ -26,4 +26,8 @@
     </div>
 </form>
 
+<p>
+    Vous n'avez pas encore de compte ? <a href="<?= url('creer-compte') ?>">Créez-en-un</a> !
+</p>
+
 <?php require_once view('parties/footer'); ?>
