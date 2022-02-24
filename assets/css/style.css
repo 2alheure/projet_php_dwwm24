@@ -1,0 +1,5 @@
+.subtitle {
+    display: inline-block;
+    border-bottom: 1px dashed #999;
+    color: #999;
+}

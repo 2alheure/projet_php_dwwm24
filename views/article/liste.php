@@ -10,6 +10,9 @@
             <div class="card-body">
                 <h4 class="card-title"><?= $article->titre ?></h4>
                 <p class="card-text"><?= resume($article) ?></p>
+                <p class="card-text">
+                    <a href="<?= url('details-article&id=' . $article->id) ?>">Lire l'article</a>
+                </p>
             </div>
         </div>
 

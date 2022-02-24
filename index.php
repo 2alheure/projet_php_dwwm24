@@ -17,6 +17,11 @@ switch ($route) {
         liste();
         break;
 
+    case 'details-article':
+        require_once controller('article');
+        details();
+        break;
+
     default:
         erreur(404);
 }

@@ -4,6 +4,10 @@ function url(string $route) {
     return 'index.php?route=' . $route;
 }
 
+function asset(string $nom) {
+    return 'assets/' . $nom;
+}
+
 function seConnecter() {
     // Include the Simple ORM class
     require_once model('SimpleOrm');
