@@ -13,6 +13,9 @@ function details() {
     $article = Article::retrieveByPK($_GET['id']);
     if (empty($article)) erreur(404);
 
+    require_once model('Commentaire');
+    $commentaires = Commentaire::retrieveByField('id_article', $_GET['id']);
+
     require_once view('article/details');
 }
 

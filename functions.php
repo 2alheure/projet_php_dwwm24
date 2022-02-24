@@ -73,3 +73,15 @@ function estConnecte() {
 function estAdmin() {
     return estConnecte() && $_SESSION['utilisateur']->role == 'admin';
 }
+
+function formaterDate(string $date) {
+    $datetime = date_create_from_format('Y-m-d H:i:s', $date);
+    return $datetime->format('d/m/Y');
+}
+
+function dd($var) {
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+    die;
+}
