@@ -43,3 +43,11 @@ function view(string $nom) {
 function erreur(int $code) {
     die('Erreur ' . $code);
 }
+
+function validerUrl(string $url): bool {
+    return filter_var($url, FILTER_VALIDATE_URL) !== false;
+}
+
+function validerDate(string $date): bool {
+    return date_create_from_format('Y-m-d', $date) !== false;
+}

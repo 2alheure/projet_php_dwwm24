@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../parties/header.php'; ?>
+<?php require_once view('parties/header'); ?>
 
 <h1>Tous les articles</h1>
 
@@ -19,4 +19,4 @@
     <?php endforeach; ?>
 </div>
 
-<?php require_once __DIR__ . '/../parties/footer.php'; ?>
+<?php require_once view('parties/footer'); ?>

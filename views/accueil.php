@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/parties/header.php'; ?>
+<?php require_once view('parties/header'); ?>
 
 <div class="jumbotron">
     <h1 class="display-3">Jumbo heading</h1>
@@ -10,4 +10,4 @@
     </p>
 </div>
 
-<?php require_once __DIR__ . '/parties/footer.php'; ?>
+<?php require_once view('parties/footer'); ?>

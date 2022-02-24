@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../parties/header.php'; ?>
+<?php require_once view('parties/header'); ?>
 
 <h1><?= $article->titre ?></h1>
 <p class="subtitle">Écrit le <?= $article->date_de_publication ?>, par <?= $article->auteur ?></p>
@@ -8,4 +8,4 @@
 <p><?= $article->contenu ?></p>
 
 
-<?php require_once __DIR__ . '/../parties/footer.php'; ?>
+<?php require_once view('parties/footer'); ?>

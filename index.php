@@ -22,6 +22,11 @@ switch ($route) {
         details();
         break;
 
+    case 'ajout-article':
+        require_once controller('article');
+        ajout();
+        break;
+
     default:
         erreur(404);
 }
