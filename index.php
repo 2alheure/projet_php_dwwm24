@@ -8,6 +8,7 @@ seConnecter();
 require_once model('Utilisateur');
 session_start();
 
+reconnecterUtilisateur();
 
 if (empty($_GET['route'])) $route = 'home';
 else $route = $_GET['route'];

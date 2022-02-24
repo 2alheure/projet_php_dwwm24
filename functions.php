@@ -85,3 +85,18 @@ function dd($var) {
     echo '</pre>';
     die;
 }
+
+function reconnecterUtilisateur() {
+    if (!estConnecte() && !empty($_COOKIE['remember'])) {
+        require_once model('Utilisateur');
+        $utilisateur = Utilisateur::retrieveByPK($_COOKIE['remember']);
+
+        if (empty($utilisateur)) { // Cas où le cookie est corrompu
+            setcookie('remember'); // On détruit le cookie
+            erreur();              // On affiche une 500
+        } else $_SESSION['utilisateur'] = $utilisateur;
+    }
+
+    if (!empty($_COOKIE['remember'])) // Si le cookie existe, on prolonge sa durée de vie
+        setcookie('remember', $_COOKIE['remember'], time() + 3600 * 24 * 30);
+}
