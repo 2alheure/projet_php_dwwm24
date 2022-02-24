@@ -1,9 +1,9 @@
 <?php
 
 function liste() {
-    require_once __DIR__ . '/../models/Article.php';
+    require_once model('Article');
 
     $articles = Article::all();
 
-    require_once __DIR__ . '/../views/article/liste.php';
+    require_once view('article/liste');
 }

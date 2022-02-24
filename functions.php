@@ -6,7 +6,7 @@ function url(string $route) {
 
 function seConnecter() {
     // Include the Simple ORM class
-    require_once __DIR__ . '/models/SimpleOrm.php';
+    require_once model('SimpleOrm');
     require_once __DIR__ . '/config.php';
 
     // Connect to the database using mysqli
@@ -17,4 +17,25 @@ function seConnecter() {
 
     // Tell Simple ORM to use the connection you just created.
     SimpleOrm::useConnection($conn, DATABASE_NAME);
+}
+
+function redirection(string $route) {
+    header('Location: ' . url($route));
+    die;
+}
+
+function model(string $nom) {
+    return __DIR__ . '/models/' . $nom . '.php';
+}
+
+function controller(string $nom) {
+    return __DIR__ . '/controllers/' . $nom . '-controller.php';
+}
+
+function view(string $nom) {
+    return __DIR__ . '/views/' . $nom . '.php';
+}
+
+function erreur(int $code) {
+    die('Erreur ' . $code);
 }

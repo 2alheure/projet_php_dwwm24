@@ -8,15 +8,15 @@ else $route = $_GET['route'];
 
 switch ($route) {
     case 'home':
-        require_once __DIR__ . '/controllers/home-controller.php';
+        require_once controller('home');
         accueil();
         break;
 
     case 'liste-articles':
-        require_once __DIR__ . '/controllers/article-controller.php';
+        require_once controller('article');
         liste();
         break;
 
     default:
-        // Une erreur
+        erreur(404);
 }
