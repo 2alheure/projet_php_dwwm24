@@ -9,7 +9,7 @@
 
 <h2>Commentaires</h2>
 
-<form method="post" action="<?= url('poster-commentaire') ?>" class="row">
+<form method="post" action="<?= url('poster-commentaire&id_article=' . $article->id) ?>" class="row">
     <h3>Poster un commentaire</h3>
 
     <?php if (!empty($errors)) erreursFormulaire($errors); ?>
