@@ -89,3 +89,14 @@ function modif() {
 
     require_once view('article/modif');
 }
+
+function suppr() {
+    if (empty($_GET['id'])) erreur(404);
+
+    $article = Article::retrieveByPK($_GET['id']);
+    if (empty($article)) erreur(404);
+
+    $article->delete();
+
+    redirection('liste-articles');
+}

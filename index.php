@@ -32,6 +32,11 @@ switch ($route) {
         modif();
         break;
 
+    case 'suppr-article':
+        require_once controller('article');
+        suppr();
+        break;
+
     default:
         erreur(404);
 }
