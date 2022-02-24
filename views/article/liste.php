@@ -10,8 +10,9 @@
             <div class="card-body">
                 <h4 class="card-title"><?= $article->titre ?></h4>
                 <p class="card-text"><?= resume($article) ?></p>
-                <p class="card-text">
-                    <a href="<?= url('details-article&id=' . $article->id) ?>">Lire l'article</a>
+                <p class="card-text d-flex justify-content-around">
+                    <a class="btn btn-primary" href="<?= url('details-article&id=' . $article->id) ?>">Lire</a>
+                    <a class="btn btn-warning" href="<?= url('modif-article&id=' . $article->id) ?>">Modifier</a>
                 </p>
             </div>
         </div>

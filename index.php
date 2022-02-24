@@ -27,6 +27,11 @@ switch ($route) {
         ajout();
         break;
 
+    case 'modif-article':
+        require_once controller('article');
+        modif();
+        break;
+
     default:
         erreur(404);
 }
