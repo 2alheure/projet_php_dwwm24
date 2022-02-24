@@ -32,9 +32,9 @@ function connexion() {
 }
 
 function deconnexion() {
-    session_destroy();
+    if (!empty($_COOKIE['remember'])) setcookie('remember');
 
-    if (!empty($_COOKIE['remember_me'])) setcookie('remember');
+    session_destroy();
 
     redirection('home');
 }
