@@ -33,6 +33,9 @@ function connexion() {
 
 function deconnexion() {
     session_destroy();
+
+    if (!empty($_COOKIE['remember_me'])) setcookie('remember');
+
     redirection('home');
 }
 
