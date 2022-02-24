@@ -18,6 +18,8 @@ function details() {
 
 function ajout() {
 
+    if (!estAdmin()) erreur(403);
+
     if (!empty($_POST)) {
         // Le POST n'est pas vide
         // Le formulaire a été soumis
@@ -53,6 +55,7 @@ function ajout() {
 }
 
 function modif() {
+    if (!estAdmin()) erreur(403);
     if (empty($_GET['id'])) erreur(404);
 
     $article = Article::retrieveByPK($_GET['id']);
@@ -91,6 +94,7 @@ function modif() {
 }
 
 function suppr() {
+    if (!estAdmin()) erreur(403);
     if (empty($_GET['id'])) erreur(404);
 
     $article = Article::retrieveByPK($_GET['id']);
