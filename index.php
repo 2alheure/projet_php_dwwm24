@@ -58,6 +58,11 @@ switch ($route) {
         register();
         break;
 
+    case 'poster-commentaire':
+        require_once controller('commentaire');
+        ajout();
+        break;
+
     default:
         erreur(404);
 }

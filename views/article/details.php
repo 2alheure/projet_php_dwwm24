@@ -9,6 +9,21 @@
 
 <h2>Commentaires</h2>
 
+<form method="post" action="<?= url('poster-commentaire') ?>" class="row">
+    <h3>Poster un commentaire</h3>
+
+    <?php if (!empty($errors)) erreursFormulaire($errors); ?>
+
+    <div class="form-group col-10">
+        <label for="commentaire">Commentaire</label>
+        <textarea class="form-control" name="commentaire" id="commentaire" rows="3" required></textarea>
+    </div>
+
+    <div class="form-group d-flex col-2 align-items-center justify-content-center">
+        <button type="submit" class="btn btn-primary">Poster</button>
+    </div>
+</form>
+
 <?php foreach ($commentaires as $commentaire) : ?>
     <div class="row my-2">
         <div class="col-1">
