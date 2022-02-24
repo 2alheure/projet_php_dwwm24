@@ -19,6 +19,13 @@
         </div>
     </div>
 
+    <div class="form-check">
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="remember_me" id="remember_me" value="true">
+            Se souvenir de moi
+        </label>
+    </div>
+
     <div class="form-group row">
         <div class="offset-sm-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Connexion</button>

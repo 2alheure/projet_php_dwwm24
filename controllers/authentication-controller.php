@@ -20,6 +20,9 @@ function connexion() {
                 // on crée la session
                 $_SESSION['utilisateur'] = $utilisateur;
 
+                if (!empty($_POST['remember_me']))
+                    setcookie('remember', $utilisateur->id, time() + 3600 * 24 * 30);
+
                 redirection('home');
             }
         }
