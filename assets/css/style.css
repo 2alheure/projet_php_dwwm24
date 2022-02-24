@@ -3,3 +3,9 @@
     border-bottom: 1px dashed #999;
     color: #999;
 }
+
+img.avatar {
+    max-width: 30px;
+    max-height: 30px;
+    object-fit: cover;
+}

@@ -23,6 +23,11 @@
 
             <?php if (estConnecte()) : ?>
                 <a class="nav-link" href="<?= url('deconnexion') ?>">Déconnexion</a>
+
+                <span class="ml-auto my-auto">
+                    <img class="avatar" src="<?= $_SESSION['utilisateur']->avatar ?>" alt="" srcset="">
+                    <?= $_SESSION['utilisateur']->pseudo ?>
+                </span>
             <?php else : ?>
                 <a class="nav-link" href="<?= url('connexion') ?>">Connexion</a>
             <?php endif; ?>
